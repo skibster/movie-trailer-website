@@ -1,0 +1,208 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Jim's Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            background-color: rgb(255, 255, 255);
+            padding-top: 80px;
+        }
+        h3 {
+            font-family: sans-serif;
+            font-size: 18px;
+        }
+        h4 {
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #DCDCDC;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="cd-go0oBF4Y" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/3/35/Biglebowskiposter.jpg" width="220" height="342">
+    <h3>The Big Lebowski</h3>
+    <h4>1998, 117 minutes</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="JgacDwgKiZg" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/d/df/BridesmaidsPoster.jpg" width="220" height="342">
+    <h3>Bridesmaids</h3>
+    <h4>2011, 125 minutes</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5b5RnNf9ShY" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/8/84/Caddyshack_poster.jpg" width="220" height="342">
+    <h3>Caddyshack</h3>
+    <h4>1980, 117 minutes</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="wrBk780aOis" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/4/49/Dead_poets_society.jpg" width="220" height="342">
+    <h3>Dead Poets Society</h3>
+    <h4>1989, 128 minutes</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="h2tY82z3xXU" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/a/ac/Fargo.jpg" width="220" height="342">
+    <h3>Fargo</h3>
+    <h4>1996, 98 minutes</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="sxvtVBeKX_o" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/1/16/Finding_forrester.jpg" width="220" height="342">
+    <h3>Finding Forrester</h3>
+    <h4>2000, 136 minutes</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="esGn-xKFZdU" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/0/05/Gone_Girl_Poster.jpg" width="220" height="342">
+    <h3>Gone Girl</h3>
+    <h4>2014, 149 minutes</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="DyiPHC_VQFY" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/b/b8/Good_Will_Hunting_theatrical_poster.jpg" width="220" height="342">
+    <h3>Good Will Hunting</h3>
+    <h4>1996, 98 minutes</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="tcdUhdOlz9M" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/b/b9/Hangoverposter09.jpg" width="220" height="342">
+    <h3>The Hangover</h3>
+    <h4>2009, 100 minutes</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="E8I-Qzmbqnc" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/a/ac/Legally_blonde.jpg" width="220" height="342">
+    <h3>Legally Blonde</h3>
+    <h4>2001, 96 min</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="urRkGvhXc8w" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/4/49/Monty_python_and_the_holy_grail_2001_release_movie_poster.jpg" width="220" height="342">
+    <h3>Monty Python and the Holy Grail</h3>
+    <h4>1975, 91 minutes</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="7N8wkVA4_8s" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/4/4f/Moonrise_Kingdom_FilmPoster.jpeg" width="220" height="342">
+    <h3>Moonrise Kingdom</h3>
+    <h4>2012, 94 minutes</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="VYgcrny2hRs" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/d/db/Princess_bride.jpg" width="220" height="342">
+    <h3>The Princess Bride</h3>
+    <h4>1987, 98 min</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="8YBlnHxkCJc" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/6/62/Ted_poster.jpg" width="220" height="342">
+    <h3>Ted</h3>
+    <h4>1987, 98 min</h4>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="fsdDeh0M_nk" data-toggle="modal" data-target="#trailer">
+    <img src="http://upload.wikimedia.org/wikipedia/en/b/bf/Terms_of_Endearment%2C_1983_film.jpg" width="220" height="342">
+    <h3>Terms of Endearment</h3>
+    <h4>1983, 132 min</h4>
+</div>
+
+    </div>
+  </body>
+</html>
