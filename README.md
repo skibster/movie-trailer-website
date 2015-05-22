@@ -7,6 +7,6 @@ Project 1: Udacity Movie Trailer website
 4. From inside the IDLE application, open the file "entertainment_center.py".
 5. From the IDLE Run menu, select "Run Module"
 
-Results:
-A browser window should open showing a list of favorite movies.
-Click on a highlighted tile to play the trailer for the movie.
+Results:  
+A browser window should open showing a list of favorite movies.  
+Click on a highlighted tile to play the trailer for the movie.  
