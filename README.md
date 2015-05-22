@@ -9,4 +9,5 @@ Project 1: Udacity Movie Trailer website
 
 Results:
 A browser window should open showing a list of favorite movies.
+
 Click on a highlighted tile to play the trailer for the movie.
